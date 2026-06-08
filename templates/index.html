@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Prediction App</title>
+    <meta name="description" content="Predict patient health based on blood test results.">
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+    <div class="container">
+        <header>
+            <h1>Health Prediction Dashboard</h1>
+            <p>Monitor and predict patient health based on blood test results.</p>
+        </header>
+
+        <div class="content">
+            <div class="card form-card">
+                <h2>Add/Update Patient</h2>
+                <form id="patient-form">
+                    <input type="hidden" id="patient-id">
+                    
+                    <div class="form-group">
+                        <label for="full-name">Full Name</label>
+                        <input type="text" id="full-name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="dob">Date of Birth</label>
+                        <input type="date" id="dob" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    
+                    <div class="form-group-row">
+                        <div class="form-group">
+                            <label for="glucose">Glucose (mg/dL)</label>
+                            <input type="number" step="0.1" id="glucose" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="haemoglobin">Haemoglobin (g/dL)</label>
+                            <input type="number" step="0.1" id="haemoglobin" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="cholesterol">Cholesterol (mg/dL)</label>
+                            <input type="number" step="0.1" id="cholesterol" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="btn primary-btn" id="submit-btn">Save Patient</button>
+                        <button type="button" class="btn secondary-btn" id="cancel-btn" style="display:none;">Cancel Edit</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="card table-card">
+                <h2>Patient Records</h2>
+                <div class="table-responsive">
+                    <table id="patients-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>DOB</th>
+                                <th>Metrics (G/H/C)</th>
+                                <th>Remarks</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="patients-tbody">
+                            <!-- Rows will be populated here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification system -->
+    <div id="notification" class="notification hidden">
+        <span id="notification-message"></span>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
